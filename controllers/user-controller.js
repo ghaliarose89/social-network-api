@@ -56,7 +56,7 @@ const userController = {
     },
 
     addFriend({params}, res){
-        User.findOneAndUpdate({ _id : params.id },
+        User.findOneAndUpdate({ _id : params.userId },
         {$addToSet:{ friends:params.friendId} }, 
         { new: true}
         )
@@ -75,7 +75,7 @@ const userController = {
     removeFriend({params},res){
         User.findOneAndUpdate(
             {_id:params.userId},
-            {$pull: { friends: {friendId:params.friendId}}},
+            {$pull: { friends: params.friendId}}, { new: true}
             
         )
         . then (dbData=> {
