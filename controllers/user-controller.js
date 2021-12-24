@@ -1,5 +1,5 @@
 const {Thought,User} = require ('../models');
-//const mongoose = require('mongoose');
+
 
 const userController = {
     //post a new user function
@@ -9,12 +9,15 @@ const userController = {
         .catch(err => res.json(err));
         
     },
+
+    //getting all users route
     getAllUsers(req, res){
         User.find({})
         .then (dbData => res.json(dbData))
         .catch(err => res.json(err));
     },
-
+// geting a user byId 
+// api/users/<userId>
     getUserById({params},res){
         User.findOne({ _id: params.id })
         
@@ -26,7 +29,8 @@ const userController = {
         .catch(err => res.json(err));
          
     },
-
+    // updating a user by Id
+    // api/users/:userId
     uppdateUser ({params, body}, res){
         User.findByIdAndUpdate({_id : params.id} , body, {new: true})
         . then(dbData=>{
@@ -41,6 +45,7 @@ const userController = {
 
     },
 
+    // api/users/:userId
 
     deleteUser({params}, res){
         User.findOneAndDelete({_id : params.id})
@@ -53,7 +58,7 @@ const userController = {
         })
         .catch(err=> res.json(err))
     },
-
+    // api/users/:userId/friends/friendId
     addFriend({params}, res){
         User.findOneAndUpdate({ _id : params.userId },
         {$addToSet:{ friends:params.friendId} }, 
@@ -70,6 +75,8 @@ const userController = {
           .catch(err => res.json(err));
 
     },
+
+// api/users/:userId/friends/friendId
 
     removeFriend({params},res){
         User.findOneAndUpdate(

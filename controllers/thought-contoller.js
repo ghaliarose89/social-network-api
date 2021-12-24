@@ -1,6 +1,6 @@
 const { Thought, User } = require('../models');
 const thoughController = {
-
+    // api/thoughts (posting a thought)
     addThought({ body }, res) {
         Thought.create(body)
        
@@ -22,13 +22,13 @@ const thoughController = {
             })
             .catch(err => res.json(err));
     },
-
+    // api/thoughts (getting all thoughts)
     getAllThoughts(req, res) {
         Thought.find({})
             .then(dbData => res.json(dbData))
             .catch(err => res.json(err));
     },
-
+    // api/thoughts<thought Id> updating a thought
     updateThoughById({params,body}, res){
         Thought.findByIdAndUpdate(
             {_id : params.id} ,body , {new : true}
@@ -44,7 +44,7 @@ const thoughController = {
             .catch(err => res.json(err));
 
     },
-
+    // api/thoughts<thought Id> getting a single thought by Id
     getThoughById({params},res){
         Thought.findById(
             {_id : params.id}
@@ -60,7 +60,7 @@ const thoughController = {
         })
         .catch(err => res.json(err));
     },
-
+    // api/thoughts<thought Id> delete a single thought by Id
     deleteThought({params}, res){
         Thought.findOneAndDelete({_id : params.id})
         .then (dbData=>{
@@ -76,6 +76,8 @@ const thoughController = {
         })
         .catch(err=> res.json(err))
     },
+
+    // api/thoughts/<thoughtId>/reactions (posting a reaction)
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
@@ -91,6 +93,8 @@ const thoughController = {
             })
             .catch(err => res.json(err));
     },
+
+    // api/thoughts/<thoughtId>/reactions/<reactionId> (delete a reaction)
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
