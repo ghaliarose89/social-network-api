@@ -1,7 +1,7 @@
 # Social-Network-API
 
 ## Purpose:
-Back-end social networking platforms applications by MongoDB.
+Back-end social networking platform application by MongoDB.
 
 ## Description:
 GIVEN a social network API
@@ -17,7 +17,7 @@ THEN  the user is able to successfully create and delete reactions to thoughts a
 ## instructions: 
 
 * Install the npm package , then enter 'node server' OR
-* visit the walk throw video (https://youtu.be/BYJG855zF40)(https://youtu.be/Cv43ktd4eOA)
+* visit the walk throw video (https://youtu.be/BYJG855zF40)</br>(https://youtu.be/Cv43ktd4eOA)
 
 ## Usage:
 After installing npm and running the Server, Open Insomnia and write the routes:
