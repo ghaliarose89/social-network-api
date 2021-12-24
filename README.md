@@ -17,7 +17,7 @@ GIVEN a social network API
 ## instructions: 
 
 * Install the npm package , then enter 'node server' OR
-* visit the walk throw video (https://youtu.be/BYJG855zF40)</br>(https://youtu.be/Cv43ktd4eOA)
+* visit the walk throw videos (https://youtu.be/BYJG855zF40)</br>(https://youtu.be/Cv43ktd4eOA)
 
 ## Usage:
 After installing npm and running the Server, Open Insomnia and write the routes:
