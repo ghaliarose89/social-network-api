@@ -17,11 +17,11 @@ const userController = {
 
     getUserById({params},res){
         User.findOne({ _id: params.id })
-        .select('-__v')
-        .populate('thoughts')
-        // populate user friends
-        .populate('friends')
         
+        .populate({path:'thoughts', select: "-__v"})
+        // populate user friends
+        .populate({path :'friends', select: "-__v"})
+        .select('-__v')
         .then (dbData => res.json(dbData))
         .catch(err => res.json(err));
          
